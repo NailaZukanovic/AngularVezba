@@ -1,0 +1,32 @@
+<div (click)="onDivClick()">
+  <img [src]="imageUrl" width="100px" height="100px" />
+  <form action="/action_page.php">
+    <label for="fname">minPrice</label>
+    <input type="text" id="fname" name="firstname" placeholder="{{ minPrice}}">
+
+    <label for="lname">maxPrice</label>
+    <input type="text" id="lname" name="lastname" placeholder="{{maxPrice}}">
+
+    <label for="country">Authors</label>
+    <select id="country" name="country">
+      <option value="australia">{{authors[0]}}</option>
+      <option value="canada">{{authors[1]}}</option>
+      <option value="usa">{{authors[2]}}</option>
+    </select>
+  
+    <input type="submit" value="Submit">
+  </form>
+
+  <button class="btn btn-info">Pretraga</button>
+  <button class="btn btn-primary" [class.active]="isActive"
+  [style.backgroundColor]="isActive?'blue':'red'"
+  (click)="onSave($event)"
+  >Aktivan</button>
+
+  <input #email (keyup.enter)="onKeyUp(email)" type="text"/>
+
+  <input type="text" [(ngModel)]="ime" />
+  <p>{{ime}}</p>
+
+  //Dodati mogucnost unosa novog kursa u Course komponenti
+</div>

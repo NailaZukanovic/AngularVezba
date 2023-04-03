@@ -1,0 +1,38 @@
+<form>
+<input type="text" [(ngModel)]="kurs"/>
+
+<button (click)="dodajKurs()"> Dodaj kurs</button>
+</form>
+
+
+
+<p>{{kurs | short : 4 }}</p>
+<p>{{kurs | number:'1.0-2'}}</p>
+
+
+<button class="btn btn-primary">Dodaj novi kurs</button>
+
+<div *ngIf="courses.length > 0;else noCourses()">
+  <ul>
+    <li *ngFor="let course of courses; index as i">
+      <p>{{course.id + " " + course.title + " " + i}}</p>
+      <div>
+        <p>Detalji o kursu sa id-jem 1</p>
+        <course-details [courseId] = "{{course.id}}" (change)="onChangeCourse($event)"></course-details>
+      </div>
+      
+    </li>
+  </ul>
+</div>
+<ng-template #noCourses>
+  nema kurseva
+</ng-template>
+
+<div [hidden]="courses.length === 0">
+  {{getCourses()}}
+</div>
+
+<input type="text" brojevi malaSlova [(ngModel)]="title" />
+<button (click)="addCourses()">
+  Dodaj novi kurs
+</button>
